@@ -17,7 +17,6 @@ public:
     {
     }
 
-    //проверки опущены
     record(const std::string& ngp, const std::string& flag){
         size_t left = ngp.find_first_of(" ", 0);
         size_t right = ngp.rfind(" ");

@@ -2,29 +2,22 @@
 #include <iostream>
 
 record::~record(){
-    //if(name) delete[] name;
-    //name = nullptr;
-    //name.clear();
     phone = 0;
     group = 0;
 }
 
-void record::print(FILE *fp) const{
+void record::print(FILE *fp) const {
 	fprintf(fp,"<%s %d %d>", name.c_str(), group, phone);
 }
 
-void record::destroy ()
-{
-	/*/if (name.size()>0){ 
-        name.clear();
-	}/*/
+void record::destroy () {
 	group=0;
     phone=0;
 }
 
 int record::init (const std::string& str, const int g, const int p){
 	group=g; phone=p; name=str;
-	return 0; //зачем это здесь?
+	return 0; 
 }
 
 void record::reinit(const std::string& iname, const int igroup, const int iphone){
@@ -63,13 +56,13 @@ bool record::operator<(const record &x) const noexcept{
     return (name<x.name && group<x.group && phone<x.phone);
 }
 
-record& record :: operator = (const record& irec){
+record& record::operator=(const record& irec){
     if(this==&irec) return *this;
     name=irec.name; group=irec.group; phone=irec.phone;
     return *this; 
 }
 
-bool record::operator!= (const record& rec) const noexcept{
+bool record::operator!=(const record& rec) const noexcept{
     return !(*this==rec);
 }
 
